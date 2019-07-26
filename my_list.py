@@ -14,4 +14,3 @@ class List:
 		return self.my_list.pop()
 
 
-print(statistics.mean([1,2,3,5,6,7,5,4]))
