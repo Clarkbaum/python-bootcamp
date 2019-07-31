@@ -2,16 +2,28 @@ import sys
 import re
 import math
 
-def decToBinary(dec, power, output):
-	junk = dec - 2**power
+def largestPowOftwo(dec, power):
 	if dec - 2**power > 0:
-		decToBinary(dec, power + 1, output)
+		return largestPowOftwo(dec, power + 1)
+	elif dec - 2**power == 0:
+		return power
 	else:
-		output += "1"
-		decToBinary(dec - 2**(power - 1), 0, output)
-		# return decToBinary(dec, power + 1)
+		return power - 1
 
-print(sys.argv)
+def decToBinary(dec):
+	print( "decimal: ", dec)
+	largestPower = largestPowOftwo(dec, 0)
+	output = ""
+	for power in range(largestPower, -1, -1):
+		if dec - 2**power >= 0:
+			output += "1"
+			dec -= 2**power
+		elif dec - 2**power < 0:
+			output += "0"
+
+	return output
+
+
 decimals = []
 
 if len(sys.argv) != 4 :
@@ -52,12 +64,5 @@ elif operator == "/":
 else:
 	sys.exit("operator not supported")
 
-print(decToBinary(output, 0, ""))
-
-
-
-
-
-
-
+print("Binary: ", decToBinary(output))
 	
