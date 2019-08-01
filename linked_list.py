@@ -57,3 +57,5 @@ linkedList.delete(15)
 print(linkedList.contains(15))
 print(linkedList.len())
 
+
+
