@@ -16,6 +16,8 @@
 #         key = 10   
 # Output : Found at index 3
 
+#NOT FINISHED I SHOULD USE BINARY SEARCH ALGORITHM
+
 import math
 
 output = ''
